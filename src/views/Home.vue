@@ -1,18 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home text-xs-center">
+    <h1 class="subheading mb-4">Select your bithday!</h1>
+
+    <v-date-picker
+      v-model="picker"
+      :landscape="true"
+      :reactive="true"
+    ></v-date-picker>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      picker: new Date().toISOString().substr(0, 10)
+    }
   }
 }
 </script>
+
