@@ -16,6 +16,7 @@
         outline
         color="info"
         class="mb-4 my-4"
+        v-on:click="goToDashboard"
       >Continue</v-btn>
     </v-flex>
   </div>
@@ -23,9 +24,15 @@
 
 <script>
 export default {
+  name: 'Home',
   data() {
     return {
       picker: new Date().toISOString().substr(0, 10)
+    }
+  },
+  methods: {
+    goToDashboard: function() {
+      this.$router.push({ name: "dashboard", params: { pickedDate: this.picker } });
     }
   }
 }
